@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# shellcheck source=../lib/utils.bash
+source "$(dirname "$(dirname "${BASH_SOURCE[0]}")")/lib/utils.bash"
+
+# SimplicityHL does not publish GitHub Releases, only git tags — fall back to
+# sorting all tags and returning the latest.
+list_all_versions | sort_versions | tail -n1

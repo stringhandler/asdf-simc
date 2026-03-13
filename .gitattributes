@@ -1,0 +1,3 @@
+* text=auto
+bin/* text eol=lf
+lib/*.bash text eol=lf
