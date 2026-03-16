@@ -5,11 +5,4 @@ set -euo pipefail
 # shellcheck source=../lib/utils.bash
 source "$(dirname "$(dirname "${BASH_SOURCE[0]}")")/lib/utils.bash"
 
-mkdir -p "${ASDF_DOWNLOAD_PATH}"
-
-local_filename="${ASDF_DOWNLOAD_PATH}/${TOOL_NAME}-${ASDF_INSTALL_VERSION}.tar.gz"
-
-download_release "${ASDF_INSTALL_VERSION}" "${local_filename}"
-
-tar -xzf "${local_filename}" -C "${ASDF_DOWNLOAD_PATH}" --strip-components=1
-rm -f "${local_filename}"
+download_release "${ASDF_INSTALL_VERSION}" "${ASDF_DOWNLOAD_PATH}"
